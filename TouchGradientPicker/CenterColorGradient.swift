@@ -16,7 +16,7 @@ public struct CenterColorGradient: GradientType {
     public var colorPoints: [(CGFloat, UIColor)] {
         get {
             // TODO proper implementation
-            return [(0.5, centerColor)]
+            return [(0, centerColor), (1, centerColor)]
         }
     }
     

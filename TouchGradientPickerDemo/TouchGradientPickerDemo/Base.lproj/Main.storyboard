@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TouchGradientPickerDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Dy-9j-Qak" customClass="GradientView" customModule="TouchGradientPicker">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="2Dy-9j-Qak" secondAttribute="centerY" id="5BG-5g-mol"/>
+                            <constraint firstItem="2Dy-9j-Qak" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="QxL-Vd-m4X"/>
+                            <constraint firstItem="2Dy-9j-Qak" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="aZ0-Hc-Nj0"/>
+                            <constraint firstAttribute="centerX" secondItem="2Dy-9j-Qak" secondAttribute="centerX" id="rud-1d-L3P"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gradientView" destination="2Dy-9j-Qak" id="sJU-0u-7U7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

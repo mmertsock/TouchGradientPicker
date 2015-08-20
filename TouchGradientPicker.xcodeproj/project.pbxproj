@@ -77,11 +77,11 @@
 		2786BB061B855CBF00AEAB41 /* TouchGradientPicker */ = {
 			isa = PBXGroup;
 			children = (
-				2786BB091B855CBF00AEAB41 /* TouchGradientPicker.h */,
-				2786BB071B855CBF00AEAB41 /* Supporting Files */,
-				2786BB201B855DFE00AEAB41 /* GradientView.swift */,
-				2786BB221B85655A00AEAB41 /* GradientType.swift */,
 				2786BB241B85662600AEAB41 /* CenterColorGradient.swift */,
+				2786BB221B85655A00AEAB41 /* GradientType.swift */,
+				2786BB201B855DFE00AEAB41 /* GradientView.swift */,
+				2786BB071B855CBF00AEAB41 /* Supporting Files */,
+				2786BB091B855CBF00AEAB41 /* TouchGradientPicker.h */,
 			);
 			path = TouchGradientPicker;
 			sourceTree = "<group>";

@@ -16,8 +16,8 @@ public protocol GradientType {
 }
 
 public extension UIView {
-    public func fillWithGradient(gradientParams: GradientType, context: CGContext!) {
-        let CGColors = gradientParams.colorPoints.map { $0.1.CGColor }
+    public func fillWithGradient(gradient: GradientType, context: CGContext!) {
+        let CGColors = gradient.colorPoints.map { $0.1.CGColor }
         // TODO respect the point values
         let gradient = CGGradientCreateWithColors(CGColorSpaceCreateDeviceRGB(), CGColors, nil)
         
