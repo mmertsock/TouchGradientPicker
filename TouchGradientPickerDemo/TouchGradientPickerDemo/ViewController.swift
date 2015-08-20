@@ -15,6 +15,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        gradientView.gradient = CenterColorGradient(flatColor: UIColor.greenColor())
+        gradientView.gradient = CenterColorGradient(centerColor: UIColor.greenColor(), hueVariance: 0.2)
     }
 }

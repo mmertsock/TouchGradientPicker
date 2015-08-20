@@ -15,11 +15,22 @@ public struct CenterColorGradient: GradientType {
     
     public var colorPoints: [(CGFloat, UIColor)] {
         get {
-            // TODO proper implementation
-            return [(0, centerColor), (1, centerColor)]
+            return [(0, startColor), (0.5, centerColor), (1, endColor)]
         }
     }
     
+    public var startColor: UIColor {
+        return centerColor.colorWithHueComponent(centerColor.hue - hueVariance)
+    }
+    
+    public var endColor: UIColor {
+        return centerColor.colorWithHueComponent(centerColor.hue + hueVariance)
+    }
+    
+    public init(centerColor: UIColor, hueVariance: CGFloat) {
+        self.centerColor = centerColor
+        self.hueVariance = hueVariance
+    }
 }
 
 public extension CenterColorGradient {
