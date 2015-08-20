@@ -10,4 +10,9 @@ import UIKit
 
 public class GradientView: UIView {
     public var gradient: GradientType = CenterColorGradient(flatColor: UIColor.blackColor())
+    
+    public override func drawRect(rect: CGRect) {
+        fillWithGradient(gradient, context: UIGraphicsGetCurrentContext())
+        super.drawRect(rect)
+    }
 }
