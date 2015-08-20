@@ -7,3 +7,7 @@
 //
 
 import UIKit
+
+public class GradientView: UIView {
+    public var gradient: GradientType = CenterColorGradient(flatColor: UIColor.blackColor())
+}
