@@ -12,9 +12,20 @@ import TouchGradientPicker
 class ViewController: UIViewController {
     
     @IBOutlet var gradientView: GradientView!
+    @IBOutlet var picker: TouchGradientPicker!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        gradientView.gradient = CenterColorGradient(centerColor: UIColor.greenColor(), hueVariance: 0.2)
+        let initialValue = CenterColorGradient(centerColor: UIColor.greenColor(), hueVariance: 0.2)
+        gradientView.gradient = initialValue
+
+        let builder = CenterColorGradientBuilder(initialValue: initialValue)
+
+        builder.hueVariance = {
+            pan, currentValue in
+            max(-0.5, min(0.5, currentValue + pan.normalizedDistance.y))
+        }
+        
+        picker.gradientBuilder = builder
     }
 }

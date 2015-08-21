@@ -19,17 +19,29 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Dy-9j-Qak" customClass="GradientView" customModule="TouchGradientPicker">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i9V-1R-GJe" customClass="TouchGradientPicker" customModule="TouchGradientPicker">
+                                <rect key="frame" x="75" y="75" width="450" height="450"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="gradientView" destination="2Dy-9j-Qak" id="dIt-yi-gBK"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="2Dy-9j-Qak" secondAttribute="centerY" id="5BG-5g-mol"/>
+                            <constraint firstAttribute="centerX" secondItem="i9V-1R-GJe" secondAttribute="centerX" id="GsP-ma-Syn"/>
                             <constraint firstItem="2Dy-9j-Qak" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="QxL-Vd-m4X"/>
+                            <constraint firstItem="i9V-1R-GJe" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-150" id="VHY-ve-ZRp"/>
                             <constraint firstItem="2Dy-9j-Qak" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="aZ0-Hc-Nj0"/>
+                            <constraint firstItem="i9V-1R-GJe" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-150" id="glH-dm-8HI"/>
                             <constraint firstAttribute="centerX" secondItem="2Dy-9j-Qak" secondAttribute="centerX" id="rud-1d-L3P"/>
+                            <constraint firstAttribute="centerY" secondItem="i9V-1R-GJe" secondAttribute="centerY" id="tKQ-ju-56c"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="gradientView" destination="2Dy-9j-Qak" id="sJU-0u-7U7"/>
+                        <outlet property="picker" destination="i9V-1R-GJe" id="m3r-OP-IsT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2783749A1B86BA8F00705ED2 /* Pan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278374991B86BA8F00705ED2 /* Pan.swift */; };
+		2783749C1B86BAC200705ED2 /* GradientBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783749B1B86BAC200705ED2 /* GradientBuilder.swift */; };
 		2786BB0A1B855CBF00AEAB41 /* TouchGradientPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 2786BB091B855CBF00AEAB41 /* TouchGradientPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2786BB101B855CBF00AEAB41 /* TouchGradientPicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2786BB041B855CBF00AEAB41 /* TouchGradientPicker.framework */; };
 		2786BB171B855CBF00AEAB41 /* TouchGradientPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2786BB161B855CBF00AEAB41 /* TouchGradientPickerTests.swift */; };
@@ -14,6 +16,8 @@
 		2786BB231B85655A00AEAB41 /* GradientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2786BB221B85655A00AEAB41 /* GradientType.swift */; };
 		2786BB251B85662600AEAB41 /* CenterColorGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2786BB241B85662600AEAB41 /* CenterColorGradient.swift */; };
 		2786BB8C1B856CBE00AEAB41 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2786BB8B1B856CBE00AEAB41 /* UIColorExtensions.swift */; };
+		2786BB8E1B856E8900AEAB41 /* CenterColorGradientBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2786BB8D1B856E8900AEAB41 /* CenterColorGradientBuilder.swift */; };
+		27890ADA1B8572CB000E8597 /* TouchGradientPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27890AD91B8572CB000E8597 /* TouchGradientPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		278374991B86BA8F00705ED2 /* Pan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pan.swift; sourceTree = "<group>"; };
+		2783749B1B86BAC200705ED2 /* GradientBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientBuilder.swift; sourceTree = "<group>"; };
 		2786BB041B855CBF00AEAB41 /* TouchGradientPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TouchGradientPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2786BB081B855CBF00AEAB41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2786BB091B855CBF00AEAB41 /* TouchGradientPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TouchGradientPicker.h; sourceTree = "<group>"; };
@@ -37,6 +43,8 @@
 		2786BB221B85655A00AEAB41 /* GradientType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientType.swift; sourceTree = "<group>"; };
 		2786BB241B85662600AEAB41 /* CenterColorGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterColorGradient.swift; sourceTree = "<group>"; };
 		2786BB8B1B856CBE00AEAB41 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		2786BB8D1B856E8900AEAB41 /* CenterColorGradientBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterColorGradientBuilder.swift; sourceTree = "<group>"; };
+		27890AD91B8572CB000E8597 /* TouchGradientPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchGradientPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +93,10 @@
 				2786BB071B855CBF00AEAB41 /* Supporting Files */,
 				2786BB091B855CBF00AEAB41 /* TouchGradientPicker.h */,
 				2786BB8B1B856CBE00AEAB41 /* UIColorExtensions.swift */,
+				2786BB8D1B856E8900AEAB41 /* CenterColorGradientBuilder.swift */,
+				27890AD91B8572CB000E8597 /* TouchGradientPicker.swift */,
+				278374991B86BA8F00705ED2 /* Pan.swift */,
+				2783749B1B86BAC200705ED2 /* GradientBuilder.swift */,
 			);
 			path = TouchGradientPicker;
 			sourceTree = "<group>";
@@ -224,7 +236,11 @@
 				2786BB251B85662600AEAB41 /* CenterColorGradient.swift in Sources */,
 				2786BB211B855DFE00AEAB41 /* GradientView.swift in Sources */,
 				2786BB231B85655A00AEAB41 /* GradientType.swift in Sources */,
+				2783749A1B86BA8F00705ED2 /* Pan.swift in Sources */,
+				27890ADA1B8572CB000E8597 /* TouchGradientPicker.swift in Sources */,
+				2783749C1B86BAC200705ED2 /* GradientBuilder.swift in Sources */,
 				2786BB8C1B856CBE00AEAB41 /* UIColorExtensions.swift in Sources */,
+				2786BB8E1B856E8900AEAB41 /* CenterColorGradientBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
