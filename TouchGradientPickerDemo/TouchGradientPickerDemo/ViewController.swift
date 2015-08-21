@@ -21,6 +21,12 @@ class ViewController: UIViewController {
 
         let builder = CenterColorGradientBuilder(initialValue: initialValue)
 
+        builder.centerColor.hue = {
+            pan, currentValue in
+            var newHue = currentValue + pan.normalizedDistance.x
+            return newHue
+        }
+        
         builder.hueVariance = {
             pan, currentValue in
             max(-0.5, min(0.5, currentValue + pan.normalizedDistance.y))

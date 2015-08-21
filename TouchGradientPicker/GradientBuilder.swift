@@ -11,7 +11,3 @@ import UIKit
 public protocol GradientBuilder {
     func gradientFromPan(pan: Pan) -> GradientType
 }
-
-public func identity<T>() -> (Pan, T) -> T {
-    return { $1 }
-}
