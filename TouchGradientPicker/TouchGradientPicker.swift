@@ -13,6 +13,7 @@ public class TouchGradientPicker: UIView {
     @IBOutlet var gradientView: GradientView!
     
     public var gradientBuilder: GradientBuilder?
+    private var panStartValue: GradientType?
     
     public required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -31,11 +32,15 @@ public class TouchGradientPicker: UIView {
     
     func didPan(sender: UIPanGestureRecognizer!) {
         switch (sender.state) {
+        case .Began:
+            panStartValue = gradientView.gradient
         case .Changed:
             if let pan = panFromGesture(sender),
-                newGradient = gradientBuilder?.gradientFromPan(pan) {
+                newGradient = gradientBuilder?.gradientFromPan(pan, panStartValue: panStartValue ?? gradientView.gradient) {
                 gradientView.gradient = newGradient
             }
+        case .Ended:
+            panStartValue = nil
         default:
             break
         }

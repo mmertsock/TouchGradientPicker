@@ -14,11 +14,11 @@ public class CenterColorGradientBuilder: GradientBuilder {
     
     public struct CenterColorBuilderParams {
         public var hue: ((Pan, CGFloat) -> CGFloat)?
-        func colorFromPan(pan: Pan, currentValue: UIColor) -> UIColor {
-            if let newHue = hue?(pan, currentValue.hue) {
-                return currentValue.colorWithHueComponent(newHue)
+        func colorFromPan(pan: Pan, panStartValue: UIColor) -> UIColor {
+            if let newHue = hue?(pan, panStartValue.hue) {
+                return panStartValue.colorWithHueComponent(newHue)
             }
-            return currentValue
+            return panStartValue
         }
     }
     
@@ -30,12 +30,13 @@ public class CenterColorGradientBuilder: GradientBuilder {
         currentValue = initialValue
     }
     
-    public func gradientFromPan(pan: Pan) -> GradientType {
-        var newCenterColor = centerColor.colorFromPan(pan, currentValue: currentValue.centerColor)
-        var newHueVariance = hueVariance?(pan, currentValue.hueVariance)
+    public func gradientFromPan(pan: Pan, panStartValue: GradientType) -> GradientType {
+        let panStartValue = (panStartValue as? CenterColorGradient) ?? currentValue
+        var newCenterColor = centerColor.colorFromPan(pan, panStartValue: panStartValue.centerColor)
+        var newHueVariance = hueVariance?(pan, panStartValue.hueVariance)
         currentValue = CenterColorGradient(
             centerColor: newCenterColor,
-            hueVariance: newHueVariance ?? currentValue.hueVariance)
+            hueVariance: newHueVariance ?? panStartValue.hueVariance)
         return currentValue
     }
 }

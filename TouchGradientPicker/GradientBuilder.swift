@@ -9,5 +9,5 @@
 import UIKit
 
 public protocol GradientBuilder {
-    func gradientFromPan(pan: Pan) -> GradientType
+    func gradientFromPan(pan: Pan, panStartValue: GradientType) -> GradientType
 }
