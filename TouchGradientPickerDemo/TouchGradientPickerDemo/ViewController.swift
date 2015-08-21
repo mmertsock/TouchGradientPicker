@@ -13,25 +13,36 @@ class ViewController: UIViewController {
     
     @IBOutlet var gradientView: GradientView!
     @IBOutlet var picker: TouchGradientPicker!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let initialValue = CenterColorGradient(centerColor: UIColor.greenColor(), hueVariance: 0.2)
+        let initialCenter = UIColor(hue: 0.9, saturation: 0.45, brightness: 0.86, alpha: 1)
+        let initialValue = CenterColorGradient(centerColor: initialCenter, hueVariance: 0.09)
         gradientView.gradient = initialValue
 
         let builder = CenterColorGradientBuilder(initialValue: initialValue)
 
         builder.centerColor.hue = {
             pan, currentValue in
-            var newHue = currentValue + pan.normalizedDistance.x
+            var newHue = currentValue + pan.horizontal * pan.horizontal
             return newHue
         }
-        
-        builder.hueVariance = {
+
+        let maxHueVarianceMagnitude: CGFloat = 0.35
+        builder.hueVariance = clamp({
             pan, currentValue in
-            max(-0.5, min(0.5, currentValue + pan.normalizedDistance.y))
-        }
+            currentValue + pan.scaled(-maxHueVarianceMagnitude).vertical
+        }, -maxHueVarianceMagnitude, maxHueVarianceMagnitude)
         
         picker.gradientBuilder = builder
+    }
+}
+
+func clamp<T: Comparable>(operand: (Pan, T) -> T, minValue: T, maxValue: T) -> (Pan, T) -> T {
+    return {
+        pan, value in
+        let newValue = operand(pan, value)
+        return max(minValue, min(maxValue, newValue))
     }
 }

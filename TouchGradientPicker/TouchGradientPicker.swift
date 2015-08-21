@@ -57,6 +57,6 @@ public class TouchGradientPicker: UIView {
         
         let normalized = CGPointMake(viewTx.x / panBounds.width, viewTx.y / panBounds.height)
         
-        return Pan(normalizedDistance: normalized)
+        return Pan(horizontal: normalized.x, vertical: normalized.y)
     }
 }
