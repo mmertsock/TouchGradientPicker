@@ -39,8 +39,8 @@ class ViewController: UIViewController {
         
         builder.centerColor.hue = {
             pan, currentValue in
-            // Square the value so small swipes = small adjustments, and 
-            // large swipes = much larger adjustments
+            // Square the value so small swipes = smaller adjustments, 
+            // for easier fine adjustment.
             var newHue = currentValue + pan.horizontal * pan.horizontal * (pan.horizontal < 0 ? -1 : 1)
             return newHue
         }

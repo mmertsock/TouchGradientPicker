@@ -10,7 +10,7 @@ import UIKit
 
 public class TouchGradientPicker: UIView {
 
-    @IBOutlet var gradientView: GradientView!
+    @IBOutlet public var gradientView: GradientView!
     
     public var gradientBuilder: GradientBuilder?
     private var panStartValue: GradientType?
