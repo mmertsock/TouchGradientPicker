@@ -9,7 +9,7 @@ TouchGradientPicker is a UIKit framework for displaying and editing color gradie
 - Abstract API, extensible via subclassing and functional programming
 - Flexible layout options: gradient display and editor input are separate views that can be laid however you please, in IB or programmatically
 
-TouchGradientPicker was developed for and featured in [Dayly Calendar][].
+TouchGradientPicker was developed for and featured in [Dayly Calendar][]. See the [app preview video][video], at about 18 seconds in, for a quick demo.
 
 ## GradientView: display color gradients in a simple UIView
 
@@ -36,5 +36,6 @@ Currently the single available builder is `CenterColorGradientBuilder`, which pr
 In addition to creating an object of this class and assigning it to the picker object, you need to configure how it reacts to the user's pan gestures. You assign one or more properties on the builder object, such as `hueVariance` or `centerColor.hue`. You assign blocks that take the current value and `Pan` gesture data as input, and return a new hue/color/etc. value. For example, you may wish to have horizontal pan gestures result in a positive/negative shift in the average hue of the gradient. See the [demo code][] for a concrete example.
 
 [Dayly Calendar]: http://www.esker-apps.com/dayly/
+[video]: http://www.esker-apps.com/dayly/demo/
 [CGGradient]: https://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CGGradient/index.html
 [demo code]: https://github.com/mmertsock/TouchGradientPicker/blob/master/TouchGradientPickerDemo/TouchGradientPickerDemo/ViewController.swift
