@@ -25,7 +25,7 @@ class ViewController: UIViewController {
 
         builder.centerColor.hue = {
             pan, currentValue in
-            var newHue = currentValue + pan.horizontal * pan.horizontal
+            var newHue = currentValue + pan.horizontal * pan.horizontal * (pan.horizontal < 0 ? -1 : 1)
             return newHue
         }
 
