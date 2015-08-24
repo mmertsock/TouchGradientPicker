@@ -8,14 +8,14 @@
 
 import UIKit
 
-extension UIColor {
-    func getHSBAComponents() -> (CGFloat, CGFloat, CGFloat, CGFloat) {
+public extension UIColor {
+    public func getHSBAComponents() -> (CGFloat, CGFloat, CGFloat, CGFloat) {
         var h: CGFloat = 0, s: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         getHue(&h, saturation: &s, brightness: &b, alpha: &a)
         return (h, s, b, a)
     }
     
-    func colorWithHueComponent(newHue: CGFloat) -> UIColor {
+    public func colorWithHueComponent(newHue: CGFloat) -> UIColor {
         var (_, s, b, a) = getHSBAComponents()
         var clampedHue = newHue
         if clampedHue > 1 { clampedHue = clampedHue - floor(newHue) }
@@ -24,17 +24,17 @@ extension UIColor {
         return newColor
     }
     
-    func colorWithBrightnessComponent(newBrightness: CGFloat) -> UIColor {
+    public func colorWithBrightnessComponent(newBrightness: CGFloat) -> UIColor {
         var (h, s, _, a) = getHSBAComponents()
         return UIColor(hue: h, saturation: s, brightness: newBrightness, alpha: a)
     }
     
-    func colorWithSaturationComponent(newSaturation: CGFloat) -> UIColor {
+    public func colorWithSaturationComponent(newSaturation: CGFloat) -> UIColor {
         var (h, _, b, a) = getHSBAComponents()
         return UIColor(hue: h, saturation: newSaturation, brightness: b, alpha: a)
     }
     
-    var hue: CGFloat {
+    public var hue: CGFloat {
         var (h, _, _, _) = getHSBAComponents()
         return h
     }
