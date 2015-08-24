@@ -11,6 +11,8 @@ TouchGradientPicker is a UIKit framework for displaying and editing color gradie
 
 TouchGradientPicker was developed for and featured in [Dayly Calendar][]. See the [app preview video][video], at about 18 seconds in, for a quick demo.
 
+You can also bookmark/favorite TouchGradientPicker on [CocoaControls][].
+
 ## GradientView: display color gradients in a simple UIView
 
 A simple UIView subclass that draws a gradient background, by setting the value of the `gradient` property. Drop this onto your storyboard scene in Xcode with whatever layout you want.
@@ -37,5 +39,6 @@ In addition to creating an object of this class and assigning it to the picker o
 
 [Dayly Calendar]: http://www.esker-apps.com/dayly/
 [video]: http://www.esker-apps.com/dayly/demo/
+[CocoaControls]: https://www.cocoacontrols.com/controls/touchgradientpicker
 [CGGradient]: https://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CGGradient/index.html
 [demo code]: https://github.com/mmertsock/TouchGradientPicker/blob/master/TouchGradientPickerDemo/TouchGradientPickerDemo/ViewController.swift
