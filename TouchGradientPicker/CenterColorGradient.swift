@@ -10,7 +10,11 @@ import UIKit
 
 public struct CenterColorGradient: GradientType {
 
+    // The color at the "midpoint" of the gradient
     public let centerColor: UIColor
+
+    // The amount by which to shift the hue of the centerColor at each
+    // "endpoint" of the gradient. Negative values permitted
     public let hueVariance: CGFloat
     
     public var colorPoints: [(CGFloat, UIColor)] {
