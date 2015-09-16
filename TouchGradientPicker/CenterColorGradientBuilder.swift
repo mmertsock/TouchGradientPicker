@@ -14,11 +14,20 @@ public class CenterColorGradientBuilder: GradientBuilder {
     
     public struct CenterColorBuilderParams {
         public var hue: ((Pan, CGFloat) -> CGFloat)?
+        public var saturation: ((Pan, CGFloat) -> CGFloat)?
+        public var brightness: ((Pan, CGFloat) -> CGFloat)?
+        public var alpha: ((Pan, CGFloat) -> CGFloat)?
         func colorFromPan(pan: Pan, panStartValue: UIColor) -> UIColor {
-            if let newHue = hue?(pan, panStartValue.hue) {
-                return panStartValue.colorWithHueComponent(newHue)
-            }
-            return panStartValue
+            let (h, s, b, a) = panStartValue.getHSBAComponents()
+            let newHue = hue?(pan, h)
+            let newSaturation = saturation?(pan, s)
+            let newBrightness = brightness?(pan, b)
+            let newAlpha = alpha?(pan, a)
+            return UIColor(
+                hue: newHue ?? h,
+                saturation: newSaturation ?? s,
+                brightness: newBrightness ?? b,
+                alpha: newAlpha ?? a)
         }
     }
     
