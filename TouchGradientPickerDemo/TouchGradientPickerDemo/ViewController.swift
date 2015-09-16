@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         // Initialize the gradient view and builder
         
         let initialCenter = UIColor(hue: 0.9, saturation: 0.45, brightness: 0.86, alpha: 1)
-        let initialValue = CenterColorGradient(centerColor: initialCenter, hueVariance: 0.09)
+        let initialValue = CenterColorGradient(centerColor: initialCenter, hueVariance: 0.09, satVariance: 0, brightnessVariance: 0, alphaVariance: 0)
         gradientView.gradient = initialValue
 
         let builder = CenterColorGradientBuilder(initialValue: initialValue)

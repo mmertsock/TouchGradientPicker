@@ -24,7 +24,13 @@ public class CenterColorGradientBuilder: GradientBuilder {
     
     public var centerColor = CenterColorBuilderParams()
     
-    public var hueVariance: ((Pan, CGFloat) -> CGFloat)? // = identity()
+    public var hueVariance: ((Pan, CGFloat) -> CGFloat)?
+    
+    public var satVariance: ((Pan, CGFloat) -> CGFloat)?
+    
+    public var brightnessVariance: ((Pan, CGFloat) -> CGFloat)?
+    
+    public var alphaVariance: ((Pan, CGFloat) -> CGFloat)?
     
     public init(initialValue: CenterColorGradient) {
         currentValue = initialValue
@@ -34,9 +40,15 @@ public class CenterColorGradientBuilder: GradientBuilder {
         let panStartValue = (panStartValue as? CenterColorGradient) ?? currentValue
         var newCenterColor = centerColor.colorFromPan(pan, panStartValue: panStartValue.centerColor)
         var newHueVariance = hueVariance?(pan, panStartValue.hueVariance)
+        var newSatVariance = satVariance?(pan, panStartValue.satVariance)
+        var newBrightnessVariance = brightnessVariance?(pan, panStartValue.brightnessVariance)
+        var newAlphaVariance = alphaVariance?(pan, panStartValue.alphaVariance)
         currentValue = CenterColorGradient(
             centerColor: newCenterColor,
-            hueVariance: newHueVariance ?? panStartValue.hueVariance)
+            hueVariance: newHueVariance ?? panStartValue.hueVariance,
+            satVariance: newSatVariance ?? panStartValue.satVariance,
+            brightnessVariance: newBrightnessVariance ?? panStartValue.brightnessVariance,
+            alphaVariance: newAlphaVariance ?? panStartValue.alphaVariance)
         return currentValue
     }
 }
