@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -26,20 +27,55 @@
                                     <outlet property="gradientView" destination="2Dy-9j-Qak" id="dIt-yi-gBK"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLu-ki-wqT">
+                                <rect key="frame" x="-4" y="527" width="608" height="73"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.65000000000000013" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Gx-W9-Spa">
+                                        <rect key="frame" x="20" y="46" width="568" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wFy-7Z-Npx">
+                                        <rect key="frame" x="207" y="10" width="193" height="29"/>
+                                        <segments>
+                                            <segment title="Hue/Hue Var"/>
+                                            <segment title="Sat/Alpha Var"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="builderSetupSelected:" destination="BYZ-38-t0r" eventType="valueChanged" id="HgM-XF-P0c"/>
+                                        </connections>
+                                    </segmentedControl>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.70000000000000007" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="2Gx-W9-Spa" firstAttribute="top" secondItem="wFy-7Z-Npx" secondAttribute="bottom" constant="8" id="20e-hK-xgU"/>
+                                    <constraint firstItem="2Gx-W9-Spa" firstAttribute="leading" secondItem="HLu-ki-wqT" secondAttribute="leading" constant="20" id="Amy-p8-qPw"/>
+                                    <constraint firstAttribute="bottom" secondItem="2Gx-W9-Spa" secondAttribute="bottom" constant="10" id="crD-Sc-JdR"/>
+                                    <constraint firstItem="wFy-7Z-Npx" firstAttribute="top" secondItem="HLu-ki-wqT" secondAttribute="top" constant="10" id="fX9-Qy-9Vl"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Gx-W9-Spa" secondAttribute="trailing" constant="20" id="gEE-8m-TE5"/>
+                                    <constraint firstItem="wFy-7Z-Npx" firstAttribute="centerX" secondItem="2Gx-W9-Spa" secondAttribute="centerX" constant="-0.5" id="kCd-OI-bR0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="2Dy-9j-Qak" secondAttribute="centerY" id="5BG-5g-mol"/>
                             <constraint firstAttribute="centerX" secondItem="i9V-1R-GJe" secondAttribute="centerX" id="GsP-ma-Syn"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HLu-ki-wqT" secondAttribute="bottom" id="PWE-Zk-Cib"/>
                             <constraint firstItem="2Dy-9j-Qak" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="QxL-Vd-m4X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HLu-ki-wqT" secondAttribute="trailing" constant="-20" id="UF8-JX-O5L"/>
                             <constraint firstItem="i9V-1R-GJe" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-150" id="VHY-ve-ZRp"/>
                             <constraint firstItem="2Dy-9j-Qak" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="aZ0-Hc-Nj0"/>
+                            <constraint firstItem="HLu-ki-wqT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="gaf-vN-ZA4"/>
                             <constraint firstItem="i9V-1R-GJe" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="-150" id="glH-dm-8HI"/>
                             <constraint firstAttribute="centerX" secondItem="2Dy-9j-Qak" secondAttribute="centerX" id="rud-1d-L3P"/>
                             <constraint firstAttribute="centerY" secondItem="i9V-1R-GJe" secondAttribute="centerY" id="tKQ-ju-56c"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="demoExplanationLabel" destination="2Gx-W9-Spa" id="7nD-iQ-byE"/>
                         <outlet property="gradientView" destination="2Dy-9j-Qak" id="sJU-0u-7U7"/>
                         <outlet property="picker" destination="i9V-1R-GJe" id="m3r-OP-IsT"/>
                     </connections>

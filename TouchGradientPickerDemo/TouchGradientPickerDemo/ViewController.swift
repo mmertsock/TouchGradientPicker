@@ -23,28 +23,41 @@ class ViewController: UIViewController {
     
     @IBOutlet var gradientView: GradientView!
     @IBOutlet var picker: TouchGradientPicker!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeGradientBuilder(0)
+    }
+    
+    private func initializeGradientBuilder(mode: Int) {
+        switch (mode) {
+        case 0: setUpHueHueVarianceBuilder()
+        case 1: setUpSatAlphaVarianceBuilder()
+        default: break
+        }
+    }
+    
+    private func setUpHueHueVarianceBuilder() {
+        demoExplanationLabel.text = "Swipe L/R to change hue, U/D to change hue variance"
         
         // Initialize the gradient view and builder
         
         let initialCenter = UIColor(hue: 0.9, saturation: 0.45, brightness: 0.86, alpha: 1)
         let initialValue = CenterColorGradient(centerColor: initialCenter, hueVariance: 0.09, satVariance: 0, brightnessVariance: 0, alphaVariance: 0)
         gradientView.gradient = initialValue
-
+        
         let builder = CenterColorGradientBuilder(initialValue: initialValue)
-
+        
         // Horizontal pan gestures: change the average hue of the gradient
         
         builder.centerColor.hue = {
             pan, currentValue in
-            // Square the value so small swipes = smaller adjustments, 
+            // Square the value so small swipes = smaller adjustments,
             // for easier fine adjustment.
             var newHue = currentValue + pan.horizontal * pan.horizontal * (pan.horizontal < 0 ? -1 : 1)
             return newHue
         }
-
+        
         // Vertical pan gestures: change the "spread" of the gradient
         
         let maxHueVarianceMagnitude: CGFloat = 0.35 // Cap the maximum amount of hue variance
@@ -52,9 +65,57 @@ class ViewController: UIViewController {
             pan, currentValue in
             // Reverse the direction of the swipe
             currentValue + pan.scaled(-maxHueVarianceMagnitude).vertical
-        }, -maxHueVarianceMagnitude, maxHueVarianceMagnitude)
+            }, -maxHueVarianceMagnitude, maxHueVarianceMagnitude)
         
         picker.gradientBuilder = builder
+    }
+    
+    private func setUpSatAlphaVarianceBuilder() {
+        demoExplanationLabel.text = "Swipe L/R to change saturation, U/D to change contrast"
+        
+        // Initialize the gradient view and builder
+        
+        let centerHue: CGFloat = 0.64
+        let initialCenter = UIColor(hue: centerHue, saturation: 0.5, brightness: 0.6, alpha: 0.7)
+        let initialValue = CenterColorGradient(centerColor: initialCenter, hueVariance: 0, satVariance: 0, brightnessVariance: -0.2, alphaVariance: 0)
+        gradientView.gradient = initialValue
+        
+        let builder = CenterColorGradientBuilder(initialValue: initialValue)
+        
+        // Horizontal pan gestures: change the average saturation of the gradient
+        
+        builder.centerColor.saturation = {
+            pan, currentValue in
+            // Reverse the direction of the swipe
+            currentValue - pan.horizontal
+        }
+        
+        // Vertical pan gestures: vary the brightness AND alpha at either end of the gradient
+        
+        let maxBrightnessVarianceMagnitude: CGFloat = 0.4 // Cap the maximum amount of contrast
+        builder.brightnessVariance = clamp({
+            pan, currentValue in
+            currentValue + pan.scaled(maxBrightnessVarianceMagnitude).vertical
+            }, -maxBrightnessVarianceMagnitude, maxBrightnessVarianceMagnitude)
+        
+        let maxAlphaVarianceMagnitude: CGFloat = 0.3
+        builder.alphaVariance = clamp({
+            pan, currentValue in
+            currentValue + pan.scaled(maxAlphaVarianceMagnitude).vertical
+            }, -maxAlphaVarianceMagnitude, maxAlphaVarianceMagnitude)
+        
+        // Keep the hue pegged at a single value
+        // (extreme brightness/saturation values can cause the original hue to be lost)
+        builder.centerColor.hue = { pan, currentValue in centerHue }
+        
+        picker.gradientBuilder = builder
+    }
+    
+    // Outlets and actions for playing with the demo
+    
+    @IBOutlet var demoExplanationLabel: UILabel!
+    @IBAction func builderSetupSelected(segmentedControl: UISegmentedControl!) {
+        initializeGradientBuilder(segmentedControl.selectedSegmentIndex)
     }
 }
 
