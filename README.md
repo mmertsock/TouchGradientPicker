@@ -13,6 +13,10 @@ TouchGradientPicker was developed for and featured in [Dayly Calendar][]. See th
 
 You can also bookmark/favorite TouchGradientPicker on [CocoaControls][].
 
+## Show me some code!
+
+See the [demo code][] for a concrete, runnable example of TouchGradientPicker usage and gradient builder setup. The code is annotated with comments. You can also continue reading a high level overview of the code below.
+
 ## GradientView: display color gradients in a simple UIView
 
 A simple UIView subclass that draws a gradient background, by setting the value of the `gradient` property. Drop this onto your storyboard scene in Xcode with whatever layout you want.
@@ -36,10 +40,6 @@ Currently the single available builder is `CenterColorGradientBuilder`, which pr
 ### CenterColorGradientBuilder
 
 In addition to creating an object of this class and assigning it to the picker object, you need to configure how it reacts to the user's pan gestures. You assign one or more properties on the builder object, such as `hueVariance` or `centerColor.hue`. You assign blocks that take the current value and `Pan` gesture data as input, and return a new hue/color/etc. value. For example, you may wish to have horizontal pan gestures result in a positive/negative shift in the average hue of the gradient.
-
-## Demo
-
-See the [demo code][] for a concrete, runnable example of TouchGradientPicker usage and gradient builder setup.
 
 [Dayly Calendar]: http://www.esker-apps.com/dayly/
 [video]: http://www.esker-apps.com/dayly/demo/
