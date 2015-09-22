@@ -47,11 +47,11 @@ public class CenterColorGradientBuilder: GradientBuilder {
     
     public func gradientFromPan(pan: Pan, panStartValue: GradientType) -> GradientType {
         let panStartValue = (panStartValue as? CenterColorGradient) ?? currentValue
-        var newCenterColor = centerColor.colorFromPan(pan, panStartValue: panStartValue.centerColor)
-        var newHueVariance = hueVariance?(pan, panStartValue.hueVariance)
-        var newSatVariance = satVariance?(pan, panStartValue.satVariance)
-        var newBrightnessVariance = brightnessVariance?(pan, panStartValue.brightnessVariance)
-        var newAlphaVariance = alphaVariance?(pan, panStartValue.alphaVariance)
+        let newCenterColor = centerColor.colorFromPan(pan, panStartValue: panStartValue.centerColor)
+        let newHueVariance = hueVariance?(pan, panStartValue.hueVariance)
+        let newSatVariance = satVariance?(pan, panStartValue.satVariance)
+        let newBrightnessVariance = brightnessVariance?(pan, panStartValue.brightnessVariance)
+        let newAlphaVariance = alphaVariance?(pan, panStartValue.alphaVariance)
         currentValue = CenterColorGradient(
             centerColor: newCenterColor,
             hueVariance: newHueVariance ?? panStartValue.hueVariance,

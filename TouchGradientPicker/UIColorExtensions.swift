@@ -16,7 +16,7 @@ public extension UIColor {
     }
     
     public func colorWithHueComponent(newHue: CGFloat) -> UIColor {
-        var (_, s, b, a) = getHSBAComponents()
+        let (_, s, b, a) = getHSBAComponents()
         var clampedHue = newHue
         if clampedHue > 1 { clampedHue = clampedHue - floor(newHue) }
         if clampedHue < 0 { clampedHue = clampedHue + ceil(abs(newHue)) }
@@ -25,17 +25,17 @@ public extension UIColor {
     }
     
     public func colorWithBrightnessComponent(newBrightness: CGFloat) -> UIColor {
-        var (h, s, _, a) = getHSBAComponents()
+        let (h, s, _, a) = getHSBAComponents()
         return UIColor(hue: h, saturation: s, brightness: newBrightness, alpha: a)
     }
     
     public func colorWithSaturationComponent(newSaturation: CGFloat) -> UIColor {
-        var (h, _, b, a) = getHSBAComponents()
+        let (h, _, b, a) = getHSBAComponents()
         return UIColor(hue: h, saturation: newSaturation, brightness: b, alpha: a)
     }
     
     public var hue: CGFloat {
-        var (h, _, _, _) = getHSBAComponents()
+        let (h, _, _, _) = getHSBAComponents()
         return h
     }
 }

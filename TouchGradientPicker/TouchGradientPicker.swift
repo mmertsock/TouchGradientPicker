@@ -15,7 +15,7 @@ public class TouchGradientPicker: UIView {
     public var gradientBuilder: GradientBuilder?
     private var panStartValue: GradientType?
     
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setUpGestureRecognizers()
     }

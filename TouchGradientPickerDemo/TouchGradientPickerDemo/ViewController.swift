@@ -54,7 +54,7 @@ class ViewController: UIViewController {
             pan, currentValue in
             // Square the value so small swipes = smaller adjustments,
             // for easier fine adjustment.
-            var newHue = currentValue + pan.horizontal * pan.horizontal * (pan.horizontal < 0 ? -1 : 1)
+            let newHue = currentValue + pan.horizontal * pan.horizontal * (pan.horizontal < 0 ? -1 : 1)
             return newHue
         }
         
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
             pan, currentValue in
             // Reverse the direction of the swipe
             currentValue + pan.scaled(-maxHueVarianceMagnitude).vertical
-            }, -maxHueVarianceMagnitude, maxHueVarianceMagnitude)
+            }, minValue: -maxHueVarianceMagnitude, maxValue: maxHueVarianceMagnitude)
         
         picker.gradientBuilder = builder
     }
@@ -96,13 +96,13 @@ class ViewController: UIViewController {
         builder.brightnessVariance = clamp({
             pan, currentValue in
             currentValue + pan.scaled(maxBrightnessVarianceMagnitude).vertical
-            }, -maxBrightnessVarianceMagnitude, maxBrightnessVarianceMagnitude)
+            }, minValue: -maxBrightnessVarianceMagnitude, maxValue: maxBrightnessVarianceMagnitude)
         
         let maxAlphaVarianceMagnitude: CGFloat = 0.3
         builder.alphaVariance = clamp({
             pan, currentValue in
             currentValue + pan.scaled(maxAlphaVarianceMagnitude).vertical
-            }, -maxAlphaVarianceMagnitude, maxAlphaVarianceMagnitude)
+            }, minValue: -maxAlphaVarianceMagnitude, maxValue: maxAlphaVarianceMagnitude)
         
         // Keep the hue pegged at a single value
         // (extreme brightness/saturation values can cause the original hue to be lost)

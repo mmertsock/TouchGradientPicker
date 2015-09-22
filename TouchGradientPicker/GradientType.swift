@@ -24,7 +24,7 @@ public extension UIView {
         let bounds = self.bounds
         let startPoint = CGPointMake(bounds.midX, bounds.minY)
         let endPoint = CGPointMake(bounds.midX, bounds.maxY)
-        let opts = CGGradientDrawingOptions(kCGGradientDrawsAfterEndLocation | kCGGradientDrawsBeforeStartLocation)
+        let opts = CGGradientDrawingOptions([CGGradientDrawingOptions.DrawsAfterEndLocation, CGGradientDrawingOptions.DrawsBeforeStartLocation])
         CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, opts)
     }
 }
